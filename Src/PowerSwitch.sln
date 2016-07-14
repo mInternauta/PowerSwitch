@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerSwitch", "PowerSwitch\PowerSwitch.csproj", "{2F091B7F-34E2-4659-BDC2-A097644206A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerSwitch.ConfigTool", "PowerSwitch.ConfigTool\PowerSwitch.ConfigTool.csproj", "{3560C490-6661-48C4-91D1-8CF0BFCC4837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerSwitch.CLI", "PowerSwitch.CLI\PowerSwitch.CLI.csproj", "{3D977F71-D9EE-4ECE-9D54-E415F4CC0C81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F091B7F-34E2-4659-BDC2-A097644206A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F091B7F-34E2-4659-BDC2-A097644206A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F091B7F-34E2-4659-BDC2-A097644206A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F091B7F-34E2-4659-BDC2-A097644206A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3560C490-6661-48C4-91D1-8CF0BFCC4837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3560C490-6661-48C4-91D1-8CF0BFCC4837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3560C490-6661-48C4-91D1-8CF0BFCC4837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3560C490-6661-48C4-91D1-8CF0BFCC4837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D977F71-D9EE-4ECE-9D54-E415F4CC0C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D977F71-D9EE-4ECE-9D54-E415F4CC0C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D977F71-D9EE-4ECE-9D54-E415F4CC0C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D977F71-D9EE-4ECE-9D54-E415F4CC0C81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
