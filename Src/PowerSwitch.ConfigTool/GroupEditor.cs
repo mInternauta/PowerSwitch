@@ -12,55 +12,16 @@ using PowerSwitch.Extensions;
 
 namespace PowerSwitch.ConfigTool
 {
-    public partial class DeviceEditor : Form
+    public partial class GroupEditor : Form
     {
-        private GroupManager groupManager;
         private List<string> platforms;
 
-        public DeviceEditor(RemoteDevice current)
+        public GroupEditor(DeviceGroup current)
         {
             InitializeComponent( );
             this.Current = current;
-            this.groupManager = new GroupManager( );
         }
-        public RemoteDevice Current { get; private set; }
-
-        private void DeviceEditor_Load(object sender, EventArgs e)
-        {
-            // Load the Platforms //
-            LoadPlatforms( );
-
-            // Load the Groups //
-            LoadGroups( );
-
-            this.txtAddress.Text = Current.Address;
-            this.txtName.Text = Current.Name;
-            this.txtUsername.Text = Current.Username;
-
-            SetEnabled( );
-        }
-
-        private void LoadGroups( )
-        {
-            var groups = groupManager.All( ).Select(p => new Views.CbGroupItem(p));
-
-            cbGroup.Items.Clear( );
-            if (groups.Any( ))
-            {
-                var cGroupList = groups.ToList( );
-                cbGroup.Items.AddRange(groups.ToArray( ));
-
-                if (string.IsNullOrEmpty(Current.IDGroup) == false)
-                {
-                    var cGroup = cGroupList.Where(p => p.Group.Id == Current.IDGroup);
-                    if (cGroup.Any( ))
-                    {
-                        int index = cGroupList.IndexOf(cGroup.First( ));
-                        cbGroup.SelectedIndex = index;
-                    }
-                }
-            }
-        }
+        public DeviceGroup Current { get; private set; }
 
         private void LoadPlatforms( )
         {
@@ -83,29 +44,16 @@ namespace PowerSwitch.ConfigTool
         private void btnSave_Click(object sender, EventArgs e)
         {
             SetPlatform( );
-
-            Current.Address = this.txtAddress.Text;
+            
             Current.Name = this.txtName.Text;
             Current.Username = this.txtUsername.Text;
 
-            if(string.IsNullOrEmpty(this.txtPassword.Text) == false)
+            if (string.IsNullOrEmpty(this.txtPassword.Text) == false)
             {
-               Current.SetPassword(this.txtPassword.Text);
+                Current.SetPassword(this.txtPassword.Text);
             }
 
             this.DialogResult = DialogResult.OK;
-        }
-
-        private void SetGroup( )
-        {
-            if(cbGroup.SelectedIndex >= 0)
-            {
-                Views.CbGroupItem selected = (Views.CbGroupItem) cbGroup.SelectedItem;
-                Current.IDGroup = selected.Group.Id;
-                this.txtUsername.Text = selected.Group.Username;
-                this.txtPassword.Text = selected.Group.GetPassword();
-                SetPlatformTo(selected.Group.Platform);
-            }
         }
 
         private void SetPlatform( )
@@ -117,9 +65,16 @@ namespace PowerSwitch.ConfigTool
             }
         }
 
-        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        private void GroupEditor_Load(object sender, EventArgs e)
         {
-            SetGroup( );
+
+            // Load the Platforms //
+            LoadPlatforms( );
+
+            this.txtName.Text = Current.Name;
+            this.txtUsername.Text = Current.Username;
+
+            SetEnabled( );
         }
 
         private void SetEnabled( )

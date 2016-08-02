@@ -56,9 +56,12 @@
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="DeviceManager.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\DeviceGroup.cs" />
     <Compile Include="Entities\DevicePlatform.cs" />
     <Compile Include="Extensions\EncryptExtensions.cs" />
+    <Compile Include="Extensions\GroupExtensions .cs" />
     <Compile Include="Extensions\RemoteDeviceExtensions.cs" />
+    <Compile Include="GroupManager.cs" />
     <Compile Include="IPowerControl.cs" />
     <Compile Include="Linux\SshPowerControl.cs" />
     <Compile Include="Linux\DebianSshPowerControl.cs" />

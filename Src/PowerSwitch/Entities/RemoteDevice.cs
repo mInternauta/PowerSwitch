@@ -6,6 +6,16 @@
     public class RemoteDevice : BaseEntity
     {
         /// <summary>
+        /// The device is enabled?
+        /// </summary>
+        public bool IsEnabled { get; set; }
+
+        /// <summary>
+        /// Id of the group of the device
+        /// </summary>
+        public string IDGroup { get; set; }
+
+        /// <summary>
         /// Name of the Device
         /// </summary>
         public string Name { get; set; }

@@ -11,7 +11,9 @@ namespace PowerSwitch.CLI
 {
     public abstract class AbstractPowerAction : AbstractOption
     {
-        protected int Execute(Boolean All, String Device, Action<IPowerControl> action)
+        GroupManager groups = new GroupManager( );
+
+        protected int Execute(Boolean All, String Device, String Group, Action<IPowerControl> action)
         {
             PowerControlFactory factory = new PowerControlFactory( );
             DeviceManager devices = new DeviceManager( );
@@ -37,6 +39,31 @@ namespace PowerSwitch.CLI
                         Trace.WriteLine("Cant find the device!");
                     }
                 }
+
+                if(string.IsNullOrEmpty(Group) == false)
+                {
+                    var groupSearch = groups.All( ).Where(p => p.Id.Contains(Group));
+
+                    if (groupSearch.Any( ))
+                    {
+                        if (groupSearch.First( ).IsEnabled)
+                        {
+                            var search = devices.All( ).Where(p => p.IDGroup.Contains(Group));
+                            foreach (RemoteDevice device in search)
+                            {
+                                ExecForDevice(factory, device, action);
+                            }
+                        }
+                        else
+                        {
+                            Trace.WriteLine("The group is disabled!");
+                        }
+                    }
+                    else
+                    {
+                        Trace.WriteLine("Cant find the group!");
+                    }
+                }
             }
 
             return 0;
@@ -47,6 +74,24 @@ namespace PowerSwitch.CLI
             Trace.WriteLine("Trying to execute action in the device: " + device.Name);
             try
             {
+                // Check if the group is disabled
+                if(string.IsNullOrEmpty(device.IDGroup) == false)
+                {
+                    var search = groups.All( ).Where(p => p.Id == device.IDGroup);
+                    if(search.Any())
+                    {
+                        if (search.First( ).IsEnabled == false)
+                            throw new EntryPointNotFoundException("The group of the device is disabled");
+                    }
+                }
+
+
+                if(device.IsEnabled == false)
+                {
+                    throw new EntryPointNotFoundException("The device is disabled");
+                }
+
+
                 IPowerControl control = factory.Create(device);
                 if (control != null)
                 {

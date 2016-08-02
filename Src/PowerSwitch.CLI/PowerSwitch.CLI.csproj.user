@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>reboot -d 2eaa7d05b2a64828a845f553f08042b1</StartArguments>
+    <StartArguments>reboot -g ca3b8918d2e44ff1a3123a47f89761b8</StartArguments>
   </PropertyGroup>
 </Project>

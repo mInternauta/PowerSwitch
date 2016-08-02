@@ -19,10 +19,12 @@ namespace PowerSwitch.CLI
         [Option('d', "device", HelpText = "Power off a configured device")]
         public string Device { get; set; }
 
+        [Option('g', "group", HelpText = "Power off all configured devices in the group")]
+        public string Group { get; set; }
 
         public override int Execute( )
         {
-            return Execute(All, Device, (c) => {
+            return Execute(All, Device, Group, (c) => {
                 c.Shutdown( );
             });
         }
@@ -31,7 +33,8 @@ namespace PowerSwitch.CLI
         {
             Trace.WriteLine("Avaliable options: ");
             Trace.WriteLine(" -a [-all]: Power off all configured devices");
-            Trace.WriteLine(" -d [-device]=[DEVICE NAME OR ID] : Power off a configure device");
+            Trace.WriteLine(" -d [-device]=[DEVICE NAME OR ID] : Power off a configured device");
+            Trace.WriteLine(" -g [-group]=[GROUP ID] : Power off all configured devices in the group");
         }
     }
 }

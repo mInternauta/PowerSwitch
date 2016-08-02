@@ -29,103 +29,68 @@
         private void InitializeComponent( )
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtaDevices = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEdit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dtaDevices)).BeginInit();
+            this.tbConfigs = new System.Windows.Forms.TabControl();
+            this.tbDevices = new System.Windows.Forms.TabPage();
+            this.deviceGrid1 = new PowerSwitch.ConfigTool.Views.DeviceGrid();
+            this.tbGroups = new System.Windows.Forms.TabPage();
+            this.groupGrid1 = new PowerSwitch.ConfigTool.Views.GroupGrid();
+            this.tbConfigs.SuspendLayout();
+            this.tbDevices.SuspendLayout();
+            this.tbGroups.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // tbConfigs
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Devices";
+            this.tbConfigs.Controls.Add(this.tbDevices);
+            this.tbConfigs.Controls.Add(this.tbGroups);
+            this.tbConfigs.Location = new System.Drawing.Point(12, 12);
+            this.tbConfigs.Name = "tbConfigs";
+            this.tbConfigs.SelectedIndex = 0;
+            this.tbConfigs.Size = new System.Drawing.Size(634, 415);
+            this.tbConfigs.TabIndex = 0;
             // 
-            // dtaDevices
+            // tbDevices
             // 
-            this.dtaDevices.AllowUserToAddRows = false;
-            this.dtaDevices.AllowUserToDeleteRows = false;
-            this.dtaDevices.AllowUserToOrderColumns = true;
-            this.dtaDevices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtaDevices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtaDevices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
-            this.colName});
-            this.dtaDevices.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtaDevices.Location = new System.Drawing.Point(15, 28);
-            this.dtaDevices.MultiSelect = false;
-            this.dtaDevices.Name = "dtaDevices";
-            this.dtaDevices.ReadOnly = true;
-            this.dtaDevices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtaDevices.ShowCellErrors = false;
-            this.dtaDevices.ShowCellToolTips = false;
-            this.dtaDevices.ShowEditingIcon = false;
-            this.dtaDevices.ShowRowErrors = false;
-            this.dtaDevices.Size = new System.Drawing.Size(597, 325);
-            this.dtaDevices.TabIndex = 1;
+            this.tbDevices.Controls.Add(this.deviceGrid1);
+            this.tbDevices.Location = new System.Drawing.Point(4, 22);
+            this.tbDevices.Name = "tbDevices";
+            this.tbDevices.Padding = new System.Windows.Forms.Padding(3);
+            this.tbDevices.Size = new System.Drawing.Size(626, 389);
+            this.tbDevices.TabIndex = 0;
+            this.tbDevices.Text = "Devices";
+            this.tbDevices.UseVisualStyleBackColor = true;
             // 
-            // btnAdd
+            // deviceGrid1
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 359);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "New";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.deviceGrid1.Location = new System.Drawing.Point(6, 6);
+            this.deviceGrid1.Name = "deviceGrid1";
+            this.deviceGrid1.Size = new System.Drawing.Size(611, 383);
+            this.deviceGrid1.TabIndex = 0;
             // 
-            // btnRemove
+            // tbGroups
             // 
-            this.btnRemove.Location = new System.Drawing.Point(93, 359);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 3;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.tbGroups.Controls.Add(this.groupGrid1);
+            this.tbGroups.Location = new System.Drawing.Point(4, 22);
+            this.tbGroups.Name = "tbGroups";
+            this.tbGroups.Padding = new System.Windows.Forms.Padding(3);
+            this.tbGroups.Size = new System.Drawing.Size(626, 389);
+            this.tbGroups.TabIndex = 1;
+            this.tbGroups.Text = "Groups";
+            this.tbGroups.UseVisualStyleBackColor = true;
             // 
-            // colId
+            // groupGrid1
             // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(174, 359);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.groupGrid1.Location = new System.Drawing.Point(6, 3);
+            this.groupGrid1.Name = "groupGrid1";
+            this.groupGrid1.Size = new System.Drawing.Size(612, 386);
+            this.groupGrid1.TabIndex = 0;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 391);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dtaDevices);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(657, 436);
+            this.Controls.Add(this.tbConfigs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -134,20 +99,19 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PowerSwitch Configuration Tool";
             this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtaDevices)).EndInit();
+            this.tbConfigs.ResumeLayout(false);
+            this.tbDevices.ResumeLayout(false);
+            this.tbGroups.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtaDevices;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TabControl tbConfigs;
+        private System.Windows.Forms.TabPage tbDevices;
+        private System.Windows.Forms.TabPage tbGroups;
+        private Views.DeviceGrid deviceGrid1;
+        private Views.GroupGrid groupGrid1;
     }
 }

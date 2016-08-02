@@ -40,6 +40,9 @@
             this.cbPlatform = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbGroup = new System.Windows.Forms.ComboBox();
+            this.btnEnable = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -126,7 +129,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(379, 124);
+            this.btnSave.Location = new System.Drawing.Point(379, 159);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 10;
@@ -134,11 +137,46 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(214, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Group:";
+            // 
+            // cbGroup
+            // 
+            this.cbGroup.FormattingEnabled = true;
+            this.cbGroup.Location = new System.Drawing.Point(217, 121);
+            this.cbGroup.Name = "cbGroup";
+            this.cbGroup.Size = new System.Drawing.Size(235, 21);
+            this.cbGroup.TabIndex = 12;
+            this.cbGroup.SelectedIndexChanged += new System.EventHandler(this.cbGroup_SelectedIndexChanged);
+            // 
+            // btnEnable
+            // 
+            this.btnEnable.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnEnable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnable.ForeColor = System.Drawing.Color.White;
+            this.btnEnable.Location = new System.Drawing.Point(15, 150);
+            this.btnEnable.Name = "btnEnable";
+            this.btnEnable.Size = new System.Drawing.Size(85, 32);
+            this.btnEnable.TabIndex = 20;
+            this.btnEnable.Text = "Enabled";
+            this.btnEnable.UseVisualStyleBackColor = false;
+            this.btnEnable.Click += new System.EventHandler(this.btnEnable_Click);
+            // 
             // DeviceEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 159);
+            this.ClientSize = new System.Drawing.Size(466, 194);
+            this.Controls.Add(this.btnEnable);
+            this.Controls.Add(this.cbGroup);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbPlatform);
@@ -174,5 +212,8 @@
         private System.Windows.Forms.ComboBox cbPlatform;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbGroup;
+        private System.Windows.Forms.Button btnEnable;
     }
 }

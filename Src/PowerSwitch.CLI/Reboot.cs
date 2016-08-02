@@ -20,9 +20,13 @@ namespace PowerSwitch.CLI
         public string Device { get; set; }
 
 
+        [Option('g', "group", HelpText = "Reboot all configured devices in the group")]
+        public string Group { get; set; }
+
+
         public override int Execute( )
         {
-            return Execute(All, Device, (c) => {
+            return Execute(All, Device, Group, (c) => {
                 c.Reboot( );
             });
         }
@@ -31,7 +35,8 @@ namespace PowerSwitch.CLI
         {
             Trace.WriteLine("Avaliable options: ");
             Trace.WriteLine(" -a [-all]: Reboot all configured devices");
-            Trace.WriteLine(" -d [-device]=[DEVICE NAME OR ID] : Reboot a configure device");
+            Trace.WriteLine(" -d [-device]=[DEVICE NAME OR ID] : Reboot a configured device");
+            Trace.WriteLine(" -g [-group]=[GROUP ID] : Reboot all configured devices in the group");
         }
     }
 }
