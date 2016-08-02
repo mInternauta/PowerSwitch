@@ -27,6 +27,7 @@ Actions:
 | Poweroff    | shutdown and halt one or more devices |
 
 Switches:
+
 | Switch         | Description                                   |
 |----------------|-----------------------------------------------|
 | -all           | Execute the action for all configured devices |
@@ -35,16 +36,19 @@ Switches:
 ### Examples:
 
 Rebooting all devices:
+
 `psconsole reboot -all`
 
 Rebooting a device by name:
+
 `psconsole reboot -d "MyDevice"`
 
 Rebooting a device by id:
+
 `psconsole reboot -d XZA2Z5A5ZA5ZA`
 
 ## Thanks to
-Newtonsoft for Json Library
-Renci for the SSH.NET Library
-gsscoder for the CommandLineParser Library
+* Newtonsoft for Json Library
+* Renci for the SSH.NET Library
+* gsscoder for the CommandLineParser Library
 
